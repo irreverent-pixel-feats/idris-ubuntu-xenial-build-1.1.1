@@ -14,7 +14,7 @@ RUN cd /tmp \
   && cd /opt/idris/idris-${IDRIS_VERSION} \
   && cabal update \
   && cabal sandbox init \
-  && cabal install -j --only-dependencies --max-backjumps=-1 --reorder-goals \
+  && (cabal install -j --only-dependencies --max-backjumps=-1 --reorder-goals > /dev/null) \
   && cabal configure \
   && cabal install -j
 
