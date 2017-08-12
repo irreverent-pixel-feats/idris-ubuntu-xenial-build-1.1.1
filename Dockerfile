@@ -9,12 +9,16 @@ RUN cd /tmp \
   && mkdir -p /opt/idris \
   && cp idris-${IDRIS_VERSION}.tar.gz /opt/idris \
   && cd /opt/idris \
-  && tar xzvf idris-${IDRIS_VERSION}.tar.gz \
+  && (tar xzvf idris-${IDRIS_VERSION}.tar.gz > /dev/null) \
   && rm idris-${IDRIS_VERSION}.tar.gz \
   && cd /opt/idris/idris-${IDRIS_VERSION} \
   && cabal update \
-  && git init \
-  && /opt/mafia/mafia build
+  && cabal sandbox init \
+  && cabal install -j --only-dependencies --max-backjumps=-1 --reorder-goals \
+  && cabal configure \
+  && cabal install -j
+
+RUN ln -sf /opt/idris/idris-${IDRIS_VERSION}/.cabal-sandbox/bin/idris* /usr/local/bin
 
 # stuff in the data dir is likely to change very frequently but doesnt actually affect the image much itself,
 # example: version SHAs

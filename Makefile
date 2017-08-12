@@ -1,10 +1,10 @@
 IDRIS_VERSION = 1.1.1
 PWD = $(shell pwd)
-REPO = "irreverentpixelfeats/idris-build"
-BASE_TAG = "ubuntu_xenial_${IDRIS_VERSION}"
+REPO = irreverentpixelfeats/idris-build
+BASE_TAG = ubuntu_xenial_${IDRIS_VERSION}
 
 tars/idris-${IDRIS_VERSION}.tar.gz:
-	cd lib/src && (tar czvf ${PWD}/tars/idris-${IDRIS_VERSION}.tar.gz IDRIS-${IDRIS_VERSION} > /dev/null)
+	cd lib/src && (tar czvf ${PWD}/tars/idris-${IDRIS_VERSION}.tar.gz idris-${IDRIS_VERSION} > /dev/null)
 
 git-sha:
 	bin/git-version ./latest-version

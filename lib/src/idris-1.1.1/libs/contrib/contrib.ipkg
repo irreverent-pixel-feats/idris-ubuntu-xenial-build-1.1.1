@@ -1,0 +1,40 @@
+package contrib
+
+opts = "--nobasepkgs --partial-eval --total -i ../prelude -i ../base"
+modules = CFFI, CFFI.Types, CFFI.Memory,
+
+          Control.Algebra,
+          Control.Algebra.Lattice, Control.Algebra.VectorSpace,
+          Control.Algebra.NumericImplementations,
+          Control.Isomorphism.Primitives,
+          Control.Partial,
+          Control.Pipeline,
+          Control.ST, Control.ST.ImplicitCall, Control.ST.Exception,
+
+          Interfaces.Verified,
+
+          Data.Fun, Data.Rel,
+          Data.Hash,
+          Data.Matrix, Data.Matrix.Algebraic, Data.Matrix.Numeric,
+          Data.Nat.DivMod, Data.Nat.DivMod.IteratedSubtraction,
+          Data.ZZ, Data.Sign,
+          Data.BoundedList,
+          Data.Heap,
+          Data.SortedMap, Data.SortedSet,
+          Data.CoList, Data.Storable,
+	  Data.List.Zipper,
+
+          Decidable.Decidable, Decidable.Order,
+
+          Network.Cgi, Network.Socket.Data, Network.Socket.Raw, Network.Socket,
+
+          System.Concurrency.Process,
+
+          Text.Lexer, Text.Parser,
+
+          Text.PrettyPrint.WL,
+          Text.PrettyPrint.WL.Core,
+          Text.PrettyPrint.WL.Characters,
+          Text.PrettyPrint.WL.Combinators,
+
+          Data.Fin.Extra
