@@ -14,6 +14,7 @@ git-sha:
 deps: git-sha tars/idris-${IDRIS_VERSION}.tar.gz
 
 build: deps Dockerfile
+	docker pull "${REPO}:${BASE_TAG}" || true
 	docker build --cache-from "${REPO}:${BASE_TAG}" --tag "${REPO}:${BASE_TAG}" --tag "${REPO}:${BASE_TAG}-$(shell cat data/version)" .
 
 images/idris-build-${BASE_TAG}.tar.gz: build
